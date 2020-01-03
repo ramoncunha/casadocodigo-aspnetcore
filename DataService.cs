@@ -1,20 +1,37 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Alura_CasaDoCodigo.Models;
+using Alura_CasaDoCodigo.Repositories;
+using Microsoft.EntityFrameworkCore;
 using mvc_alura;
+using mvc_alura.Models;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Alura_CasaDoCodigo
 {
     public class DataService : IDataService
     {
         private readonly ApplicationContext contexto;
+        private readonly IProdutoRepository produtoRepository;
 
-        public DataService(ApplicationContext context)
+        public DataService(ApplicationContext context, IProdutoRepository produtoRepository)
         {
-            context = contexto;
+            this.contexto = context;
+            this.produtoRepository = produtoRepository;
         }
 
         public void InicializaDB()
         {
             contexto.Database.Migrate();
+            List<Livro> livros = GetLivros();
+            produtoRepository.SaveProdutos(livros);
+        }
+
+        private static List<Livro> GetLivros()
+        {
+            var json = File.ReadAllText("livros.json");
+            var livros = JsonConvert.DeserializeObject<List<Livro>>(json);
+            return livros;
         }
     }
 }
