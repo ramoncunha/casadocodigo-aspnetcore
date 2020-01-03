@@ -11,7 +11,7 @@ namespace mvc_alura.Models
         {
         }
         public int Id { get; set; }
-        public virtual Pedido Pedido { get; set; }
+        public Pedido Pedido { get; set; }
         public string Nome { get; set; } = "";
         public string Email { get; set; } = "";
         public string Telefone { get; set; } = "";

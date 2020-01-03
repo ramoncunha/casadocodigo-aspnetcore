@@ -15,7 +15,7 @@ namespace mvc_alura
 
             modelBuilder.Entity<Pedido>().HasKey(p => p.Id);
             modelBuilder.Entity<Pedido>().HasMany(p => p.Itens).WithOne(i => i.Pedido);
-            modelBuilder.Entity<Pedido>().HasOne(p => p.Cadastro).WithOne(c => c.Pedido).IsRequired();
+            modelBuilder.Entity<Pedido>().HasOne(p => p.Cadastro).WithOne(c => c.Pedido);
 
             modelBuilder.Entity<ItemPedido>().HasKey(ip => ip.Id);
             modelBuilder.Entity<ItemPedido>().HasOne(ip => ip.Pedido);
