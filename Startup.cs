@@ -31,11 +31,14 @@ namespace Alura_CasaDoCodigo
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // ADICIONANDO BANCO DE DADOS SQL SERVER
             var connectionString = Configuration.GetConnectionString("Default");
 
             services.AddDbContext<ApplicationContext>(options =>
-            options.UseSqlServer(connectionString)
+                options.UseSqlServer(connectionString)
             );
+
+            services.AddTransient<IDataService, DataService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,7 +63,7 @@ namespace Alura_CasaDoCodigo
                     template: "{controller=Pedido}/{action=Carrossel}/{id?}");
             });
 
-            serviceProvider.GetService<ApplicationContext>().Database.Migrate();
+            serviceProvider.GetService<IDataService>().InicializaDB();
         }
     }
 }
