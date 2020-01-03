@@ -1,8 +1,6 @@
 ﻿using Alura_CasaDoCodigo.Models;
 using Alura_CasaDoCodigo.Repositories;
 using Microsoft.EntityFrameworkCore;
-using mvc_alura;
-using mvc_alura.Models;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;

@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>Alura_CasaDoCodigo</RootNamespace>
+    <AssemblyName>Alura_CasaDoCodigo</AssemblyName>
   </PropertyGroup>
 
 

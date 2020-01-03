@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using mvc_alura.Models;
+using Alura_CasaDoCodigo.Models;
 
-namespace mvc_alura
+namespace Alura_CasaDoCodigo
 {
     public class ApplicationContext : DbContext
     {

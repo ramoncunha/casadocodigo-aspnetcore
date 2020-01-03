@@ -1,6 +1,4 @@
 ﻿using Alura_CasaDoCodigo.Models;
-using mvc_alura;
-using mvc_alura.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +13,11 @@ namespace Alura_CasaDoCodigo.Repositories
         public ProdutoRepository(ApplicationContext contexto)
         {
             this.contexto = contexto;
+        }
+
+        public IList<Produto> GetProdutos()
+        {
+            return contexto.Set<Produto>().ToList();
         }
 
         public void SaveProdutos(List<Livro> livros)
