@@ -1,8 +1,4 @@
 ﻿using Alura_CasaDoCodigo.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Alura_CasaDoCodigo.Repositories
 {
@@ -10,6 +6,11 @@ namespace Alura_CasaDoCodigo.Repositories
     {
         public ItemPedidoRepository(ApplicationContext contexto) : base(contexto)
         {
+        }
+
+        public void UpdateQuantidade(IItemPedidoRepository itemPedido)
+        {
+            
         }
     }
 }
