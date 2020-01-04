@@ -1,6 +1,6 @@
 ﻿namespace Alura_CasaDoCodigo
 {
-    internal interface IItemPedidoRepository
+    public interface IItemPedidoRepository
     {
     }
 }

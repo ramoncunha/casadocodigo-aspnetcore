@@ -1,6 +1,6 @@
 ﻿namespace Alura_CasaDoCodigo
 {
-    internal interface ICadastroRepository
+    public interface ICadastroRepository
     {
     }
 }
