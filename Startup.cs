@@ -30,6 +30,10 @@ namespace Alura_CasaDoCodigo
             });
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // Adicionando serviço de Session
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            
 
             // ADICIONANDO BANCO DE DADOS SQL SERVER
             var connectionString = Configuration.GetConnectionString("Default");
@@ -58,6 +62,8 @@ namespace Alura_CasaDoCodigo
             }
 
             app.UseStaticFiles();
+            // Utilizando Session
+            app.UseSession();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>
