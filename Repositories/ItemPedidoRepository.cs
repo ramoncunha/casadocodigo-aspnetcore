@@ -1,4 +1,5 @@
 ﻿using Alura_CasaDoCodigo.Models;
+using System.Linq;
 
 namespace Alura_CasaDoCodigo.Repositories
 {
@@ -10,7 +11,15 @@ namespace Alura_CasaDoCodigo.Repositories
 
         public void UpdateQuantidade(ItemPedido itemPedido)
         {
-            
+            var itemPedidoDB = dbSet
+                .Where(ip => ip.Id == itemPedido.Id)
+                .SingleOrDefault();
+
+            if (itemPedidoDB != null)
+            {
+                itemPedidoDB.AtualizaQuantidade(itemPedido.Quantidade);
+                contexto.SaveChanges();
+            }
         }
     }
 }
