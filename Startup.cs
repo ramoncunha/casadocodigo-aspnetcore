@@ -22,6 +22,7 @@ namespace Alura_CasaDoCodigo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /* Foi necessário comentar essa parte do código, pois estava atrapalhando o funcionamento da Session */
             //services.Configure<CookiePolicyOptions>(options =>
             //{
             //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -68,6 +69,8 @@ namespace Alura_CasaDoCodigo
             app.UseStaticFiles();
             // Utilizando Session
             app.UseSession();
+
+            /* Foi necessário comentar essa parte do código, pois estava atrapalhando o funcionamento da Session */
             //app.UseCookiePolicy();
 
             app.UseMvc(routes =>
