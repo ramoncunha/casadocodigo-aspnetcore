@@ -1,5 +1,6 @@
 ﻿using Alura_CasaDoCodigo.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,7 +44,10 @@ namespace Alura_CasaDoCodigo.Repositories
         public Pedido GetPedido()
         {
             var pedidoId = GetPedidoId();
-            var pedido = dbSet.Where(p => p.Id == pedidoId).SingleOrDefault();
+            var pedido = dbSet
+                            .Include(p => p.Itens)
+                                .ThenInclude(i => i.Produto)
+                            .Where(p => p.Id == pedidoId).SingleOrDefault();
 
             if(pedido == null)
             {
@@ -59,7 +63,7 @@ namespace Alura_CasaDoCodigo.Repositories
 
         private int? GetPedidoId()
         {
-            // Acessnado objeto da sessão para recuperar Id do Pedido.
+            // Acessando objeto da sessão para recuperar Id do Pedido.
             return contextAccessor.HttpContext.Session.GetInt32("pedidoId");
         }
 
