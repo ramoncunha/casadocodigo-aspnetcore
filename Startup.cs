@@ -47,6 +47,8 @@ namespace Alura_CasaDoCodigo
             services.AddTransient<IPedidoRepository, PedidoRepository>();
             services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
             services.AddTransient<ICadastroRepository, CadastroRepository>();
+
+            services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

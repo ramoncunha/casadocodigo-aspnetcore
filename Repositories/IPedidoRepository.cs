@@ -1,6 +1,9 @@
-﻿namespace Alura_CasaDoCodigo
+﻿using Alura_CasaDoCodigo.Models;
+
+namespace Alura_CasaDoCodigo.Repositories
 {
-    internal interface IPedidoRepository
+    public interface IPedidoRepository
     {
+        Pedido GetPedido();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Alura_CasaDoCodigo.Repositories;
+﻿using Alura_CasaDoCodigo.Models;
+using Alura_CasaDoCodigo.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace mvc_alura.Controllers
@@ -6,10 +7,13 @@ namespace mvc_alura.Controllers
     public class PedidoController : Controller
     {
         private readonly IProdutoRepository produtoRepository;
+        private readonly IPedidoRepository pedidoRepository;
 
-        public PedidoController(IProdutoRepository produtoRepository)
+        public PedidoController(IProdutoRepository produtoRepository,
+            IPedidoRepository pedidoRepository)
         {
             this.produtoRepository = produtoRepository;
+            this.pedidoRepository = pedidoRepository;
         }
 
         public IActionResult Carrossel()
@@ -19,7 +23,8 @@ namespace mvc_alura.Controllers
 
         public IActionResult Carrinho()
         {
-            return View();
+            Pedido pedido = pedidoRepository.GetPedido();
+            return View(pedido.Itens);
         }
 
         public IActionResult Resumo()
