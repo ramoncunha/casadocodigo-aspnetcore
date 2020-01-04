@@ -94,7 +94,19 @@
             var linhaDoItem = $(btn).parents('[item-id]');
             var itemId = $(linhaDoItem).attr('item-id');
             var novaQtd = $(linhaDoItem).find('input').val();
-            debugger;
+            var data = {
+                Id: itemId,
+                Quantidade: novaQtd
+            };
+
+            $.ajax({
+                url: '/pedido/updatequantidade',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data)
+            });
+
+            
         }
     </script>
 }

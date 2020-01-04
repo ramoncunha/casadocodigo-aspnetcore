@@ -41,5 +41,10 @@ namespace mvc_alura.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public void UpdateQuantidade([FromBody]ItemPedido itemPedido)
+        {
+
+        }
     }
 }
