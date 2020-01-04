@@ -2,15 +2,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 
 namespace Alura_CasaDoCodigo.Models
 {
+    [DataContract]
     public class ItemPedido : BaseModel
     {
+        [DataMember]
         public Pedido Pedido { get; private set; }
+        [DataMember]
         public Produto Produto { get; private set; }
+        [DataMember]
         public int Quantidade { get; private set; }
+        [DataMember]
         public decimal PrecoUnitario { get; private set; }
 
         public ItemPedido()
