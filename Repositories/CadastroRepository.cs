@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Alura_CasaDoCodigo.Repositories
 {
-    public class CadastroRepository : BaseRepository<Cadastro>
+    public class CadastroRepository : BaseRepository<Cadastro>, ICadastroRepository
     {
         public CadastroRepository(ApplicationContext contexto) : base(contexto)
         {

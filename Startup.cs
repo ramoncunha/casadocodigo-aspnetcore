@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using mvc_alura;
 using System;
 
 namespace Alura_CasaDoCodigo
@@ -41,6 +40,9 @@ namespace Alura_CasaDoCodigo
 
             services.AddTransient<IDataService, DataService>();
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
+            services.AddTransient<IPedidoRepository, PedidoRepository>();
+            services.AddTransient<IItemPedidoRepository, ItemPedidoRepository>();
+            services.AddTransient<ICadastroRepository, CadastroRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,7 +64,7 @@ namespace Alura_CasaDoCodigo
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Pedido}/{action=Carrossel}/{id?}");
+                    template: "{controller=Pedido}/{action=Carrossel}/{codigo?}");
             });
 
             serviceProvider.GetService<IDataService>().InicializaDB();
