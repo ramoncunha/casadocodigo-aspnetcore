@@ -1,13 +1,13 @@
-﻿using System;
+﻿using Alura_CasaDoCodigo.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Alura_CasaDoCodigo.Models
 {
-    public class Produto
+    public class Produto : BaseModel
     {
-        public int Id { get; set; }
         public string Codigo { get; private set; }
         public string Nome { get; private set; }        
         public decimal Preco { get; private set; }
