@@ -8,7 +8,7 @@ namespace Alura_CasaDoCodigo.Repositories
         {
         }
 
-        public void UpdateQuantidade(IItemPedidoRepository itemPedido)
+        public void UpdateQuantidade(ItemPedido itemPedido)
         {
             
         }

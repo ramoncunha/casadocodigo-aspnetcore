@@ -1,7 +1,9 @@
-﻿namespace Alura_CasaDoCodigo.Repositories
+﻿using Alura_CasaDoCodigo.Models;
+
+namespace Alura_CasaDoCodigo.Repositories
 {
     public interface IItemPedidoRepository
     {
-        void UpdateQuantidade(IItemPedidoRepository itemPedido);
+        void UpdateQuantidade(ItemPedido itemPedido);
     }
 }
