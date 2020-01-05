@@ -34,8 +34,8 @@ namespace Alura_CasaDoCodigo.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Codigo = table.Column<string>(nullable: true),
-                    Nome = table.Column<string>(nullable: true),
+                    Codigo = table.Column<string>(nullable: false),
+                    Nome = table.Column<string>(nullable: false),
                     Preco = table.Column<decimal>(nullable: false)
                 },
                 constraints: table =>
@@ -68,8 +68,8 @@ namespace Alura_CasaDoCodigo.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    PedidoId = table.Column<int>(nullable: true),
-                    ProdutoId = table.Column<int>(nullable: true),
+                    PedidoId = table.Column<int>(nullable: false),
+                    ProdutoId = table.Column<int>(nullable: false),
                     Quantidade = table.Column<int>(nullable: false),
                     PrecoUnitario = table.Column<decimal>(nullable: false)
                 },

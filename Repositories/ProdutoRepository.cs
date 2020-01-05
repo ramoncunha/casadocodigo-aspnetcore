@@ -24,7 +24,7 @@ namespace Alura_CasaDoCodigo.Repositories
                 if (!dbSet.Where(p => p.Codigo == livro.Codigo).Any())
                 {
                     dbSet.Add(new Produto(livro.Codigo, livro.Nome, livro.Preco));
-                }
+                }                
             }
             contexto.SaveChanges();
         }

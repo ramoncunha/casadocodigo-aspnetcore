@@ -30,6 +30,11 @@
             data: JSON.stringify(data)
         });
     }
+
+    updateQuantidade(input) {
+        let data = this.getData(input);
+        this.postQuantidade(data);
+    }
 }
 
 var carrinho = new Carrinho();
