@@ -1,4 +1,5 @@
 ﻿using Alura_CasaDoCodigo.Models;
+using Alura_CasaDoCodigo.Models.ViewModels;
 using Alura_CasaDoCodigo.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,7 +31,8 @@ namespace mvc_alura.Controllers
                 pedidoRepository.AddItem(codigo);
             }
             Pedido pedido = pedidoRepository.GetPedido();
-            return View(pedido.Itens);
+            var viewModel = new CarrinhoViewModel(pedido.Itens);
+            return View(viewModel);
         }
 
         public IActionResult Resumo()
