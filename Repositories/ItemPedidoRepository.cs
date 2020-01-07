@@ -9,17 +9,17 @@ namespace Alura_CasaDoCodigo.Repositories
         {
         }
 
-        public void UpdateQuantidade(ItemPedido itemPedido)
+        public ItemPedido GetItemPedidoId(int itemPedidoId)
         {
-            var itemPedidoDB = dbSet
-                .Where(ip => ip.Id == itemPedido.Id)
-                .SingleOrDefault();
+            return dbSet
+                    .Where(ip => ip.Id == itemPedidoId)
+                    .SingleOrDefault();
+        }
 
-            if (itemPedidoDB != null)
-            {
-                itemPedidoDB.AtualizaQuantidade(itemPedido.Quantidade);
-                contexto.SaveChanges();
-            }
+        public void RemoveItemPedido(int itemPedidoId)
+        {
+            var itemRemovivel = GetItemPedidoId(itemPedidoId);
+            dbSet.Remove(itemRemovivel);
         }
     }
 }

@@ -23,6 +23,8 @@ namespace Alura_CasaDoCodigo.Models
         [DataMember]
         [Required]
         public decimal PrecoUnitario { get; private set; }
+        [DataMember]
+        public decimal Subtotal => Quantidade * PrecoUnitario;
 
         internal void AtualizaQuantidade(int quantidade)
         {

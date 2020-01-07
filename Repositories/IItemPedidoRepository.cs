@@ -4,6 +4,7 @@ namespace Alura_CasaDoCodigo.Repositories
 {
     public interface IItemPedidoRepository
     {
-        void UpdateQuantidade(ItemPedido itemPedido);
+        ItemPedido GetItemPedidoId(int itemPedidoId);
+        void RemoveItemPedido(int itemPedidoId);
     }
 }
