@@ -36,6 +36,7 @@ namespace mvc_alura.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Resumo(Cadastro cadastro)
         {
             if (ModelState.IsValid){
@@ -57,6 +58,7 @@ namespace mvc_alura.Controllers
             return View(pedido.Cadastro);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public UpdateQuantidadeResponse UpdateQuantidade([FromBody]ItemPedido itemPedido)
         {
             return pedidoRepository.UpdateQuantidade(itemPedido);
