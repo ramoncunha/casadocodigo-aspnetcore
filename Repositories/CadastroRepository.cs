@@ -11,5 +11,21 @@ namespace Alura_CasaDoCodigo.Repositories
         public CadastroRepository(ApplicationContext contexto) : base(contexto)
         {
         }
+
+        public Cadastro Update(int cadastroId, Cadastro novoCadastro)
+        {
+            var cadastroDb = dbSet.Where(c => c.Id == cadastroId)
+                             .SingleOrDefault();
+
+            if(cadastroDb == null)
+            {
+                throw new ArgumentNullException("cadastro");
+            }
+
+            cadastroDb.Update(novoCadastro);
+            contexto.SaveChanges();
+
+            return cadastroDb;
+        }
     }
 }

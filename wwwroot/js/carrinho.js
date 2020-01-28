@@ -35,7 +35,11 @@
             linhaDoItem.find('[subtotal]').html((itemPedido.subtotal).duasCasas());
 
             let carrinhoViewModel = response.carrinhoViewModel;
+            $('[total]').html((carrinhoViewModel.total).duasCasas());
             $('[numero-itens]').html('Total: ' + carrinhoViewModel.itens.lenght + ' itens')
+            if (itemPedido.quantidade == 0) {
+                linhaDoItem.remove();
+            }
         });
     }
 }
